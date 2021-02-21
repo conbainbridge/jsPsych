@@ -94,6 +94,23 @@ jsPsych.plugins["audio-button-mousetrack"] = (function() {
     } else {
       var audio = jsPsych.pluginAPI.getAudioBuffer(trial.stimulus);
       audio.currentTime = 0;
+          
+      // setup mouse tracking
+      var mousetracking = [];
+
+      var mouseTracker = function(e) {
+        var x = e.clientX;
+        var y = e.clientY;
+        var time = e.timeStamp
+        var mousedata = {
+          "time": time,
+          "x_coor": x,
+          "y_coor": y
+        }
+        mousetracking.push(mousedata)
+      };
+
+      document.addEventListener("mousemove", mouseTracker)
     }
 
     // set up end event if trial needs it
@@ -113,23 +130,6 @@ jsPsych.plugins["audio-button-mousetrack"] = (function() {
         audio.addEventListener('ended', enable_buttons);
       }
     }
-
-    // setup mouse tracking
-    var mousetracking = [];
-
-    var mouseTracker = function(e) {
-      var x = e.clientX;
-      var y = e.clientY;
-      var time = e.timeStamp
-      var mousedata = {
-        "time": time,
-        "x_coor": x,
-        "y_coor": y
-      }
-      mousetracking.push(mousedata)
-    };
-
-    document.addEventListener("mousemove", mouseTracker)
 
   	//display buttons
     var buttons = [];
