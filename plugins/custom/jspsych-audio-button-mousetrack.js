@@ -220,7 +220,7 @@ jsPsych.plugins["audio-button-response"] = (function () {
       mousetracking.push(mousedata)
     };
 
-    document.addEventListener("mousemove", mouseTracker)
+ 
 
 
     // function to end trial when it is time
