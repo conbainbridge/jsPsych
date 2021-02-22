@@ -126,23 +126,6 @@ jsPsych.plugins["audio-button-response"] = (function () {
       if ((!trial.response_allowed_while_playing) & (!trial.trial_ends_after_audio)) {
         audio.addEventListener('ended', enable_buttons);
       }
-
-      // setup mouse tracking
-      var mousetracking = [];
-
-      var mouseTracker = function(e) {
-        var x = e.clientX;
-        var y = e.clientY;
-        var time = e.timeStamp
-        var mousedata = {
-          "time": time,
-          "x_coor": x,
-          "y_coor": y
-        }
-        mousetracking.push(mousedata)
-      };
-
-      document.addEventListener("mousemove", mouseTracker)
       
 
       //display buttons
@@ -220,6 +203,25 @@ jsPsych.plugins["audio-button-response"] = (function () {
         end_trial();
       }
     }
+    
+
+    // setup mouse tracking
+    var mousetracking = [];
+
+    var mouseTracker = function(e) {
+      var x = e.clientX;
+      var y = e.clientY;
+      var time = e.timeStamp
+      var mousedata = {
+        "time": time,
+        "x_coor": x,
+        "y_coor": y
+      }
+      mousetracking.push(mousedata)
+    };
+
+    document.addEventListener("mousemove", mouseTracker)
+
 
     // function to end trial when it is time
     function end_trial() {
