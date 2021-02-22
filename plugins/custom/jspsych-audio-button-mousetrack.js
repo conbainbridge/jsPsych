@@ -1,5 +1,5 @@
 /**
- * jspsych-audio-button-response
+ * jspsych-audio-button-mousetrack
  * Kristin Diep
  *
  * plugin for playing an audio file and getting a keyboard response
@@ -8,13 +8,13 @@
  *
  **/
 
-jsPsych.plugins["audio-button-response"] = (function () {
+jsPsych.plugins["audio-button-mousetrack"] = (function () {
   var plugin = {};
 
-  jsPsych.pluginAPI.registerPreload('audio-button-response', 'stimulus', 'audio');
+  jsPsych.pluginAPI.registerPreload('audio-button-mousetrack', 'stimulus', 'audio');
 
   plugin.info = {
-    name: 'audio-button-response',
+    name: 'audio-button-mousetrack',
     description: '',
     parameters: {
       stimulus: {
@@ -134,7 +134,7 @@ jsPsych.plugins["audio-button-response"] = (function () {
         if (trial.button_html.length == trial.choices.length) {
           buttons = trial.button_html;
         } else {
-          console.error('Error in audio-button-response plugin. The length of the button_html array does not equal the length of the choices array');
+          console.error('Error in audio-button-mousetrack plugin. The length of the button_html array does not equal the length of the choices array');
         }
       } else {
         for (var i = 0; i < trial.choices.length; i++) {
@@ -245,7 +245,7 @@ jsPsych.plugins["audio-button-response"] = (function () {
         rt: response.rt,
         stimulus: trial.stimulus,
         response: response.button,
-        // mouse: mousetracking
+        mouse: mousetracking
       };
 
       // clear the display
