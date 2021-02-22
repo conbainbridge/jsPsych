@@ -218,7 +218,6 @@ jsPsych.plugins["audio-button-mousetrack"] = (function () {
         "y_coor": y
       }
       mousetracking.push(mousedata)
-      console.log(mousedata)
     };
 
     document.addEventListener("mousemove", mouseTracker)
