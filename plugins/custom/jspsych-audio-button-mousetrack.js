@@ -141,8 +141,6 @@ jsPsych.plugins["audio-button-response"] = (function () {
         }
         mousetracking.push(mousedata)
       };
-
-      document.addEventListener("mousemove", mouseTracker)
       
 
       //display buttons
@@ -172,6 +170,8 @@ jsPsych.plugins["audio-button-response"] = (function () {
       }
 
       display_element.innerHTML = html;
+
+      document.addEventListener("mousemove", mouseTracker)
 
       if (trial.response_allowed_while_playing) {
         enable_buttons();
