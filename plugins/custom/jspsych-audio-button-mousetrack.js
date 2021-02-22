@@ -220,7 +220,7 @@ jsPsych.plugins["audio-button-response"] = (function () {
       mousetracking.push(mousedata)
     };
 
- 
+    document.addEventListener("mousemove", mouseTracker)
 
 
     // function to end trial when it is time
@@ -245,7 +245,7 @@ jsPsych.plugins["audio-button-response"] = (function () {
         rt: response.rt,
         stimulus: trial.stimulus,
         response: response.button,
-        mouse: mousetracking
+        // mouse: mousetracking
       };
 
       // clear the display
